@@ -15,7 +15,7 @@
     }
 
     .remark-container {
-        background-color: #fca;
+        /* background-color: #fca; */
     }
     .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
 </style>
@@ -24,8 +24,14 @@
 <textarea id="source">
 
 class: center, middle
+background-image: url(images/frank-mckenna-252014.jpg)
+background-size: cover
 
 # Dockerizing Front-end Projects
+
+Adam Beres-Deak
+
+@bdadamm | me@bdadam.com
 
 ---
 
@@ -51,7 +57,9 @@ class: middle
 <script src="https://remarkjs.com/downloads/remark-latest.min.js">
 </script>
 <script>
-    var slideshow = remark.create();
+    var slideshow = remark.create({
+        ratio: '16:9',
+    });
 </script>
 </body>
 </html>
