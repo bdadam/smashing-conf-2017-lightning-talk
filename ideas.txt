@@ -1,0 +1,17 @@
+- First slide:
+  - Throw in tools and tech words
+  - Node.js, Php, Webpack, Grunt, Gulp, Rollup, npm, yarn, Mongo, Redis, Nginx, Apache, Imagemagick, Graphicsmagick, etc.
+
+- How to work with all these technologies in different projects
+
+- Dockerize all the things
+- What is in a Dockerfile?
+- Reproducible builds (same input always delivers the same results)
+
+- docker-compose for local computer
+
+- Record some terminal command runs
+
+- Point out time savings
+  - Switching between projects back and forth
+  - No need to share database, configuration or runtime dependencies, everything is encapsulated
