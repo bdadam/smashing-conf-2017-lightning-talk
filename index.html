@@ -10,46 +10,118 @@
 
     body { font-family: 'Droid Serif'; }
     h1, h2, h3 {
-    font-family: 'Yanone Kaffeesatz';
-    font-weight: normal;
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+    }
+
+    .unsplash-credit {
+        padding: 0;
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+    }
+
+    a {
+        color: #8888cc;
+    }
+
+    .shadow {
+        background-color: rgba(0, 0, 0, 0.55);
+        padding: 12px 0;
+    }
+
+    .bright-text.remark-slide-content h1 {
+        font-size: 5rem;
+        /* background-color: rgba(0, 0, 0, 0.45); */
+        /* padding: 8px; */
+    }
+
+    .bright-text.remark-slide-content > p, .bright-text.remark-slide-content > blockquote {
+        font-size: 1.5rem;
+        line-height: 1.5;
+        /* background-color: rgba(0, 0, 0, 0.45); */
+        /* padding: 4px; */
     }
 
     .remark-container {
         /* background-color: #fca; */
     }
     .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+    .bright-text {
+        color: #fff;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7  5);
+    }
 </style>
 </head>
 <body>
 <textarea id="source">
 
-class: center, middle
+class: center, middle, bright-text
 background-image: url(images/frank-mckenna-252014.jpg)
 background-size: cover
 
+.shadow[
 # Dockerizing Front-end Projects
 
-Adam Beres-Deak
+## Adam Beres-Deak
 
 @bdadamm | me@bdadam.com
+]
+</div>
+
+.unsplash-credit[
+<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px;" href="https://unsplash.com/@frankiefoto?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from frank mckenna"><span style="display:inline-block;padding:2px 3px;"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-1px;fill:white;" viewBox="0 0 32 32"><title></title><path d="M20.8 18.1c0 2.7-2.2 4.8-4.8 4.8s-4.8-2.1-4.8-4.8c0-2.7 2.2-4.8 4.8-4.8 2.7.1 4.8 2.2 4.8 4.8zm11.2-7.4v14.9c0 2.3-1.9 4.3-4.3 4.3h-23.4c-2.4 0-4.3-1.9-4.3-4.3v-15c0-2.3 1.9-4.3 4.3-4.3h3.7l.8-2.3c.4-1.1 1.7-2 2.9-2h8.6c1.2 0 2.5.9 2.9 2l.8 2.4h3.7c2.4 0 4.3 1.9 4.3 4.3zm-8.6 7.5c0-4.1-3.3-7.5-7.5-7.5-4.1 0-7.5 3.4-7.5 7.5s3.3 7.5 7.5 7.5c4.2-.1 7.5-3.4 7.5-7.5z"></path></svg></span><span style="display:inline-block;padding:2px 3px;">frank mckenna</span></a>
+]
 
 ---
 
-
+background-image: url(/images/collage-2017-10-16-2.png)
+background-size: contain
 
 ---
 
-class: middle
+class: center, middle, bright-text
+background-image: url(images/tanja-heffner-263537.jpg)
+background-size: cover
+
+.shadow[
+# Reproducibility, determinism
+]
+
+.unsplash-credit[
+<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px;" href="https://unsplash.com/@tanjaheffner?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Tanja Heffner"><span style="display:inline-block;padding:2px 3px;"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-1px;fill:white;" viewBox="0 0 32 32"><title></title><path d="M20.8 18.1c0 2.7-2.2 4.8-4.8 4.8s-4.8-2.1-4.8-4.8c0-2.7 2.2-4.8 4.8-4.8 2.7.1 4.8 2.2 4.8 4.8zm11.2-7.4v14.9c0 2.3-1.9 4.3-4.3 4.3h-23.4c-2.4 0-4.3-1.9-4.3-4.3v-15c0-2.3 1.9-4.3 4.3-4.3h3.7l.8-2.3c.4-1.1 1.7-2 2.9-2h8.6c1.2 0 2.5.9 2.9 2l.8 2.4h3.7c2.4 0 4.3 1.9 4.3 4.3zm-8.6 7.5c0-4.1-3.3-7.5-7.5-7.5-4.1 0-7.5 3.4-7.5 7.5s3.3 7.5 7.5 7.5c4.2-.1 7.5-3.4 7.5-7.5z"></path></svg></span><span style="display:inline-block;padding:2px 3px;">Tanja Heffner</span></a>
+]
+
+--
+
+.shadow[
+> In mathematics and physics, a deterministic system is a system in which no randomness is involved in the development of future states of the system. A deterministic model will thus always produce the same output from a given starting condition or initial state. [Wikipedia](https://en.wikipedia.org/wiki/Deterministic_system)
+]
+
+???
+same command always produces same output
+
+---
+
+class: middle, center
 
 # Docker
 
 > Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
 
-- Lightweight alternative for virtual machines
+Lightweight alternative for virtual machines
 
-- What happens in the container stays in the container.
+???
+What happens in the container stays in the container.
 
 ---
+
+class: middle, center
+
+# Docker Compose
+
+Compose is a tool for defining and running (multi-container) Docker applications.
 
 
 
